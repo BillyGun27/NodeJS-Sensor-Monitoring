@@ -1,0 +1,48 @@
+body {
+    background: #61C3D0;
+    color: white;
+    font-family: 'Nova Flat', cursive;
+  }
+
+a {
+  color: #00B7FF;
+}
+.head{
+  padding: 20px;
+  background: #61C3D0;
+  text-align: center;
+  
+}
+.barbox{
+  padding: 20px;
+  background: #DD8800;
+  text-align: center;
+}
+
+.tile{
+  background: #B46E00;
+}
+
+.circle{
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px; height: 300px;
+  padding: 10px; 
+  background: #1EFF5A; 
+  border-top: 15px solid #226200;
+  border-right: 15px solid #226200;
+  border-bottom: 15px dashed #226200;
+  -moz-border-radius: 50px; 
+  -webkit-border-radius: 50px; 
+  border-radius: 50px;
+}
+.alertcircle{
+  background: #DE8080; 
+  border-top: 15px solid #801616;
+  border-right: 15px solid #801616;
+  border-bottom: 15px dashed #801616;
+}
+#sensor{
+  font-size: 50px; 
+}

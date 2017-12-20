@@ -1,0 +1,70 @@
+<head>  
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Nova+Flat" rel="stylesheet"> 
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/materialize.min.css' />
+   <!--<script src="/javascripts/jquery.min.js"/>-->
+    <script src="/socket.io/socket.io.js"></script>
+   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+
+    var socket = io();
+    //define functions socket.emit sending to server (app.js) and socket.on receiving 
+      // 'new message' is for the id of the socket and $('#new-message') is for the button
+  //    function sendFunction() {
+  //    socket.emit('new message', $('#new-message').val());
+   //   $('#new-message').val('');
+    //}
+     // 'chat message' is for the id of the socket and $('#new-area') is for the text area
+    socket.on('new data', function(msg){
+      $('#sensor').html(msg.sensor);
+      //alert(msg.status);
+      if(msg.status == "Not Fresh"){
+        $('#wait').addClass("alertcircle");
+      }else{
+        $('#wait').removeClass("alertcircle");
+      }
+      $('#status').html(msg.status);
+      $('#time').html( new Date() );
+
+    });
+    </script>
+  </head>  
+  
+  <body>  
+    
+        
+    <div class="head">
+        <h1><%= title %></h1>
+        <h3 id="ds">Fresh Air Detector</h3>
+    </div>
+   
+    <div class="barbox">
+        <div id="wait" class="circle">
+            <h1 id="sensor"><%- data[0].mqsensor %></h1>
+            <h2 id="status"><%- data[0].status %></h2>
+        </div>
+    </div>
+    <div class="barbox tile">
+        <h5>Last Update:</h5> 
+        <h5 id="time"><%- data[0].time %></h5>
+    </div>
+
+    
+    <!--<div class="row">
+        <div class="col s12 m4 l2"><p>s12 m4</p></div>
+        <div class="col s12 m4 l8"><p>s12 m4</p></div>
+        <div class="col s12 m4 l2"><p>s12 m4</p></div>
+      </div>-->
+
+      <script>
+           //alert( $('#status').html() );
+
+      if($('#status').html() == "Not Fresh"){
+        $('#wait').addClass("alertcircle");
+      }else{
+        $('#wait').removeClass("alertcircle");
+       
+      }
+      </script>
+  </body>
